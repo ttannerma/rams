@@ -52,11 +52,6 @@ const PersonnelInformationManagement = () => {
       return
     }
 
-    if(personnelData && personnelData.some(person => person.name.toUpperCase() === trimmedName.toUpperCase())) {
-      alert("Personnel with this name already exists")
-      return
-    }
-
     if(personnelData && personnelData.some(person => person.email.toUpperCase() === trimmedEmail.toUpperCase())) {
       alert("Personnel with this email already exists")
       return

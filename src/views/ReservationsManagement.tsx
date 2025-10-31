@@ -60,11 +60,11 @@ const ReservationsManagement = () => {
   const handleCreateReservationClick = () => {
     const newReservation: Reservation = {
       id: "", // ID will be assigned by the backend
-      personalId: selectedPersonnelIds, // Assuming single selection for simplicity
+      personalId: selectedPersonnelIds,
       factoryName: selectedFactory,
       startTime: startTime ? startTime.toISOString() : "",
       endTime: endTime ? endTime.toISOString() : "",
-    }
+    };
 
     reservationsMutation.mutate(newReservation);
   }
