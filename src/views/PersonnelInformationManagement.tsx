@@ -60,6 +60,11 @@ const PersonnelInformationManagement = () => {
       return;
     }
 
+    if (trimmedEmail === '') {
+      alert('Please enter a valid email');
+      return;
+    }
+
     if (
       personnelData &&
       personnelData.some(
