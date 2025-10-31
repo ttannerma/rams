@@ -1,8 +1,8 @@
-import { Box } from "@mui/material"
-import NavBar from "./Navbar"
+import { Box } from '@mui/material';
+import NavBar from './Navbar';
 
-interface Props { 
-  children: React.ReactNode
+interface Props {
+  children: React.ReactNode;
 }
 
 const Layout = ({ children }: Props) => {
@@ -13,7 +13,7 @@ const Layout = ({ children }: Props) => {
         {children}
       </Box>
     </Box>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

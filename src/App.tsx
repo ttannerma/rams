@@ -1,10 +1,10 @@
-import { Box, Tab, Tabs } from '@mui/material'
-import NavBar from './components/Navbar'
+import { Box, Tab, Tabs } from '@mui/material';
+import NavBar from './components/Navbar';
 import { useState } from 'react';
 import TabPanel from './components/TabPanel';
 import FactoryInformationManagement from './views/FactoryInformationManagement';
 import PersonnelInformationManagement from './views/PersonnelInformationManagement';
-import ReservationsManagement from "./views/ReservationsManagement";
+import ReservationsManagement from './views/ReservationsManagement';
 
 const TABS = {
   FACTORY_INFORMATION: 0,
@@ -16,7 +16,7 @@ function App() {
   const [tabValue, setTabValue] = useState(0);
 
   return (
-    <Box sx={{ height: "100vh" }}>
+    <Box sx={{ height: '100vh' }}>
       <NavBar />
       <Box mt={2} px={2}>
         <Tabs
@@ -42,4 +42,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

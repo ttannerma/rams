@@ -6,3 +6,7 @@ dist
 public
 *.json
 *.js
+*.md
+*.config.ts
+*.html
+*.css
