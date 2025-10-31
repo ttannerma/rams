@@ -14,9 +14,9 @@ The project is scaffolded using Vite.
 
 # Installation
 
-1. **Clone the repository:**
+1. **Clone the repository (https) and go to appropriate directory:**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/ttannerma/rams.git
    cd rams-frontend
    ```
 
