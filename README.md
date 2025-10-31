@@ -34,4 +34,4 @@ The project is scaffolded using Vite.
    - Visit [http://localhost:5173](http://localhost:5173) in your browser.
 
 > **Note:**  
-> Make sure you have [Node.js v25](https://nodejs.org/) (or newer) and [npm 11.6.2] or newer (https://www.npmjs.com/) installed.
+> Make sure you have [Node.js v25](https://nodejs.org/) (or newer) and [npm 11.6.2](https://www.npmjs.com/) or newer  installed.
