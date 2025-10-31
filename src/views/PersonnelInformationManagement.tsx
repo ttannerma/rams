@@ -80,55 +80,99 @@ const PersonnelInformationManagement = () => {
       <Typography variant="h4">2. Personnel information</Typography>
       <Box>
         <Box>
-          <TextField label="Full name" variant="outlined" sx={{ mt: 2, mr: 2}} value={personnelName} onChange={(e) => setPersonnelName(e.target.value)}/>
-          <TextField label="Email" variant="outlined" sx={{ mt: 2, mr: 2}} value={personnelEmail} onChange={(e) => setPersonnelEmail(e.target.value)}/>
-          <FormControl sx={{ mt: "16px", "& .MuiInputBase-root": { m: 0}}}>
-            <InputLabel id="factory-select-label">Assigned factories</InputLabel>
+          <TextField
+            label="Full name"
+            variant="outlined"
+            sx={{ mt: 2, mr: 2 }}
+            value={personnelName}
+            onChange={(e) => setPersonnelName(e.target.value)}
+          />
+          <TextField
+            label="Email"
+            variant="outlined"
+            sx={{ mt: 2, mr: 2 }}
+            value={personnelEmail}
+            onChange={(e) => setPersonnelEmail(e.target.value)}
+          />
+          <FormControl sx={{ mt: "16px", "& .MuiInputBase-root": { m: 0 } }}>
+            <InputLabel id="factory-select-label">
+              Assigned factories
+            </InputLabel>
             <Select
               value={selectedFactories}
               labelId="factory-select-label"
               id="factory-select"
               label="Assigned factories"
               onChange={(e) => {
-                  const selectedOptions = e.target.value as Factory["name"][]
-                  setSelectedFactories(selectedOptions)
-                }
-              }
+                const selectedOptions = e.target.value as Factory["name"][];
+                setSelectedFactories(selectedOptions);
+              }}
               multiple
-              sx={{ width: "200px", mt: 2, mr: 2}}
+              sx={{ width: "200px", mt: 2, mr: 2 }}
             >
-              {factoriesData && factoriesData.map((factory) => (
-                <MenuItem value={factory.name}>{factory.name}</MenuItem>
-              ))}
+              {factoriesData &&
+                factoriesData.map((factory) => (
+                  <MenuItem value={factory.name}>{factory.name}</MenuItem>
+                ))}
             </Select>
           </FormControl>
-          <Button variant="contained" sx={{ ml: 2, mt: 2, mb: 4 }} onClick={handleNewPersonnelAddClick} disabled={addNewPersonnelMutation.isPending || !personnelName || !personnelEmail}>
+          <Button
+            variant="contained"
+            sx={{ ml: 2, mt: 2, mb: 4 }}
+            onClick={handleNewPersonnelAddClick}
+            disabled={
+              addNewPersonnelMutation.isPending ||
+              !personnelName ||
+              !personnelEmail ||
+              selectedFactories.length === 0
+            }
+          >
             Add personnel
           </Button>
         </Box>
         <Box>
-          {personnelData && personnelData.map((person) => (
-          <Box key={person.personalId} sx={{ display: "flex", flexDirection: "row", mb: 2, p: 2, border: "1px solid black", borderRadius: "8px"}}>
-            <Box>
-              <Typography>Name: {person.name}</Typography>
-              <Typography>Personal id: {person.personalId}</Typography>
-              <Typography>Email: {person.email}</Typography>
-              <Typography>Assigned factories:</Typography>
-              <Box>
-                {person.factories.map((factory: string, idx: number) => (
-                  <Typography key={idx}>{idx + 1}. {factory}</Typography>
-                ))}
+          {personnelData &&
+            personnelData.map((person) => (
+              <Box
+                key={person.personalId}
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  mb: 2,
+                  p: 2,
+                  border: "1px solid black",
+                  borderRadius: "8px",
+                }}
+              >
+                <Box>
+                  <Typography>Name: {person.name}</Typography>
+                  <Typography>Personal id: {person.personalId}</Typography>
+                  <Typography>Email: {person.email}</Typography>
+                  <Typography>Assigned factories:</Typography>
+                  <Box>
+                    {person.factories.map((factory: string, idx: number) => (
+                      <Typography key={idx}>
+                        {idx + 1}. {factory}
+                      </Typography>
+                    ))}
+                  </Box>
+                </Box>
+                <Box sx={{ alignContent: "center", ml: "auto" }}>
+                  <Button
+                    variant="outlined"
+                    sx={{ mt: 1, width: "150px", ml: "auto" }}
+                    color="error"
+                    onClick={() => handlePersonnelDeleteClick(person)}
+                  >
+                    Delete Personnel
+                  </Button>
+                </Box>
               </Box>
-            </Box>
-            <Box sx={{ alignContent: "center", ml: "auto"}}>
-              <Button variant="contained" sx={{ mt: 1, width: "150px", ml: "auto"}} color="error" onClick={() => handlePersonnelDeleteClick(person)}>Delete Personnel</Button>
-            </Box>
-          </Box>
-          ))}
+            ))}
         </Box>
       </Box>
     </Box>
-  )
+  );
 }
 
 
